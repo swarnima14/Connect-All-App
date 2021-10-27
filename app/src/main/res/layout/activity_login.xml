@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:alpha="0.9"
+        android:gravity="center">
+        <!--<ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_transparent"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"/>-->
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/iiitu_logo"
+            android:alpha="1"
+            android:padding="5dp"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:text="LOGIN"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:alpha="1" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="@color/colorPrimaryDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLoginEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:passwordToggleEnabled="true"
+            android:backgroundTint="@color/colorPrimaryDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLoginPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:cornerRadius="10dp"
+            android:layout_marginTop="20dp"
+            android:elevation="30dp"
+            android:text="Login"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/txtWarningLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="warning"
+            android:textColor="@color/colorAccent"
+            android:visibility="gone" />
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtRegister1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:clickable="false"
+
+                android:text="Don't have an account? "
+                android:fontFamily="@font/aldrich"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:fontFamily="@font/aldrich"
+                android:textColor="#259f6c"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+
+            android:clickable="true"
+            android:fontFamily="@font/aldrich"
+
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

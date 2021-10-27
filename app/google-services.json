@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "245553054183",
+    "project_id": "connect-all-3646d",
+    "storage_bucket": "connect-all-3646d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245553054183:android:24a40251c2dd160269fd42",
+        "android_client_info": {
+          "package_name": "com.app.connectall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245553054183-6c6g27ohpbib14v4qa3t2u47b8578h1d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIGlERHzAwmNrsqFc_1P3RCckMFWasMx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "245553054183-6c6g27ohpbib14v4qa3t2u47b8578h1d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
