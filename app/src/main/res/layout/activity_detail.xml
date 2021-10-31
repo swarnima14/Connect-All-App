@@ -50,8 +50,10 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="165dp"
-                    android:src="@drawable/jd_23_512" />
+                    android:src="@drawable/profile" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_first_name"
                 android:layout_width="0dp"
@@ -203,7 +205,6 @@
                 app:layout_constraintWidth_percent="0.7"
                 style="?android:attr/borderlessButtonStyle"
                 android:elevation="2dp"
-                android:onClick="performEditProfile"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
