@@ -7,29 +7,14 @@
     android:background="#FFFFFF"
     tools:context=".EditProfileActivity">
 
-    <TextView
-        android:id="@+id/tv_heading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create your Profile"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="#000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="24dp"
-        />
-
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_heading"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteX="11dp">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="46dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -37,120 +22,114 @@
             android:focusable="true"
             android:focusableInTouchMode="true">
 
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="194dp"
-                android:layout_height="120dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/profile" />
-
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name:"
+                android:text="Email:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageButton" />
+                />
+            <TextView
+                android:id="@+id/work_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Work Experience:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/enter_email" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/name_details"
+                android:id="@+id/enter_work_experience"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/name">
+                app:layout_constraintTop_toBottomOf="@id/work_experience">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="enter your name" />
+                    android:hint="enter work experience" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/graduation"
+                android:id="@+id/company"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Year of graduation:"
+                android:text="Company:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name_details" />
+                app:layout_constraintTop_toBottomOf="@+id/enter_work_experience" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/graduation_enter"
+                android:id="@+id/enter_company_details"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/graduation">
+                app:layout_constraintTop_toBottomOf="@id/company">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Enter graduation year" />
+                    android:hint="Enter your company name and location" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/branch"
+            <EditText
+                android:id="@+id/editTextTextMultiLine6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Branch:"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/other_info"/>
+            <TextView
+                android:id="@+id/experience_years"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Years of experience:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/graduation_enter" />
+                app:layout_constraintTop_toBottomOf="@id/enter_company_details" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/branch_enter"
+                android:id="@+id/enter_detailed_experience"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/branch">
+                app:layout_constraintTop_toBottomOf="@id/experience_years">
 
                 <com.google.android.material.textfield.TextInputEditText
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="enter your branch" />
+                    android:hint="enter years of experience" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enter_email"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="enter email" />
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
-                android:id="@+id/select_domain"
+                android:id="@+id/other_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select your domain:"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="Any other:"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/branch_enter"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/enter_detailed_experience" />
 
-            <RadioButton
-                android:id="@+id/higher_studies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Higher studies"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/select_domain"/>
-
-            <RadioButton
-                android:id="@+id/corporate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Corporate sector"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/higher_studies"/>
-
-            <RadioButton
-                android:id="@+id/govt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Government sector"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/corporate"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -164,13 +143,15 @@
         android:layout_height="50dp"
         android:background="@color/design_default_color_primary"
         android:elevation="2dp"
-        android:text="Next ->"
+        android:text="Submit"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

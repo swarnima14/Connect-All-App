@@ -13,8 +13,9 @@
         <activity android:name=".UploadResources" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".EditProfileActivity"/>
-        <activity android:name=".LauncherActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LauncherActivity"/>
+        <activity android:name=".EditProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
