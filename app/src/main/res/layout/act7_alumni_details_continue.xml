@@ -28,8 +28,10 @@
                 android:layout_height="wrap_content"
                 android:text="Email:"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.142"
                 app:layout_constraintStart_toStartOf="parent"
-                />
+                tools:layout_editor_absoluteY="0dp" />
+
             <TextView
                 android:id="@+id/work_experience"
                 android:layout_width="wrap_content"
