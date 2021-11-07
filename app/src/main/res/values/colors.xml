@@ -8,9 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#950101</color>
+    <color name="colorPrimaryDark">#3D0000</color>
+    <color name="colorAccent">#D8B6A4</color>
+    <color name="colorAccentNext">#D57E7E</color>
     <color name="colorJoined">#FFFFFF</color>
     <color name="OnJoined">#1eb2a6</color>
 </resources>
