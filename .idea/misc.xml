@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ankit/OneDrive/Desktop/MAJOR PROJECT/Connect-All-App/app/src/main/res/layout/act1_launcher.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/ankit/OneDrive/Desktop/MAJOR PROJECT/Connect-All-App/app/src/main/res/layout/act2_register.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/ankit/OneDrive/Desktop/MAJOR PROJECT/Connect-All-App/app/src/main/res/layout/act3_login.xml" value="0.125" />
+        <entry key="..\:/Users/ankit/OneDrive/Desktop/MAJOR PROJECT/Connect-All-App/app/src/main/res/layout/act4_selection.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/ankit/OneDrive/Desktop/MAJOR PROJECT/Connect-All-App/app/src/main/res/layout/act5_alumni_details.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/ankit/OneDrive/Desktop/MAJOR PROJECT/Connect-All-App/app/src/main/res/layout/act6_upload_resources.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/ankit/OneDrive/Desktop/MAJOR PROJECT/Connect-All-App/app/src/main/res/layout/act7_alumni_details_continue.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/ankit/OneDrive/Desktop/MAJOR PROJECT/Connect-All-App/app/src/main/res/layout/layout.xml" value="0.125" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
