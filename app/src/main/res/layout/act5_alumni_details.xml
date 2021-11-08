@@ -162,13 +162,13 @@
             android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="RadioButton" />
+            android:text="Higher Studies " />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
-            android:text="RadioButton" />
+            android:text="Government Sector" />
     </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
