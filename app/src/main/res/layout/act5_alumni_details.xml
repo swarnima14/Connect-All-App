@@ -172,16 +172,16 @@
     </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="255dp"
-        android:layout_height="34dp"
+        android:layout_width="362dp"
+        android:layout_height="43dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.243"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="585dp">
+        tools:layout_editor_absoluteY="576dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText"
-            android:layout_width="251dp"
+            android:layout_width="365dp"
             android:layout_height="32dp"
             android:hint="Enter Your LinkedIn Profile Link" />
     </com.google.android.material.textfield.TextInputLayout>
