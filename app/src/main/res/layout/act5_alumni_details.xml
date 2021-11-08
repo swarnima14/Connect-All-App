@@ -49,71 +49,50 @@
 
             <TextView
                 android:id="@+id/name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="56dp"
+                android:layout_height="26dp"
                 android:text="Name:"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageButton" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/name_details"
-                android:layout_width="409dp"
-                android:layout_height="wrap_content"
+                android:layout_width="360dp"
+                android:layout_height="49dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="enter your name" />
+                    android:layout_height="37dp"
+                    android:hint="Enter your name" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/graduation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="129dp"
+                android:layout_height="25dp"
                 android:text="Year of graduation:"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.092"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_details" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/graduation_enter"
-                android:layout_width="409dp"
-                android:layout_height="wrap_content"
+                android:layout_width="368dp"
+                android:layout_height="45dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/graduation">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter graduation year" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/branch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Branch:"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/graduation_enter" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="409dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/branch">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/branch_enter"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="enter your branch" />
+                    android:layout_height="35dp"
+                    android:hint="Enter your year of graduation" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -125,14 +104,72 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginBottom="76dp"
         android:background="@color/design_default_color_primary"
         android:elevation="2dp"
         android:text="Next ->"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="341dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/branch_enter"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:hint="Enter your branch" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/branch"
+        android:layout_width="77dp"
+        android:layout_height="26dp"
+        android:text="Branch:"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="311dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="227dp"
+        android:layout_height="21dp"
+        android:text="Choose your domain "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="403dp" />
+
+    <RadioGroup
+        android:layout_width="232dp"
+        android:layout_height="114dp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="442dp" >
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:text="Corporate/Technical Sector" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Higher Studies" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:text="Government Sector" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
