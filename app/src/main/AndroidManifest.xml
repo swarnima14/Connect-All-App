@@ -14,7 +14,8 @@
         <activity android:name=".UploadResources" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".EditProfileActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.ConnectAll.NoActionBar"/>
         <activity android:name=".RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
