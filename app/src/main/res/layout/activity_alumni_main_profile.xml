@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AlumniMainProfile">
+
+    <TextView
+        android:id="@+id/tvHi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:text="Hi "
+        android:textSize="26sp"
+        android:padding="3dp"
+        android:textStyle="bold|italic"/>
+
+    <TextView
+        android:id="@+id/tvAlmName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/tvHi"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="qqqqqqqqqqqqqq"
+        android:textSize="26sp"
+        android:padding="3dp"
+        android:textStyle="italic"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAlmName">
+    
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/cvAlmImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHi"
+        android:src="@drawable/profile"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/colorPrimaryDark"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal|center_vertical">
+
+    <TextView
+        android:id="@+id/tvAlmBatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BATCH OF 2023"
+        android:textSize="22sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@id/cvAlmImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAlmName"/>
+    
+
+    
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAlmEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDIT PROFILE"
+        app:layout_constraintStart_toEndOf="@id/cvAlmImg"
+        app:layout_constraintTop_toBottomOf="@id/tvAlmBatch"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvUploadText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="40dp"
+        android:padding="2sp"
+        android:text="Upload Resources"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fbUpload" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/upload"
+        android:tooltipText="Upload Resources"/>
+
+    <TextView
+        android:id="@+id/tvTalkText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="60dp"
+        android:padding="2sp"
+        android:text="Schedule a talk with students"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvUploadText"
+        app:layout_constraintEnd_toStartOf="@id/fbTalk" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbTalk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@id/fbUpload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/talk"
+        android:tooltipText="Schedule Talk"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

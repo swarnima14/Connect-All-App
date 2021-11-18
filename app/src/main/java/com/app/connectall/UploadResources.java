@@ -27,9 +27,9 @@ import com.google.firebase.storage.UploadTask;
 
 public class UploadResources extends AppCompatActivity {
 
-    MaterialButton btnUpload;
+    MaterialButton btnUpload, btnSelect;
     RadioGroup grp;
-    TextInputEditText etLink, etDesc;
+    TextInputEditText etLink, etDesc, etName;
     TextInputLayout layLink;
     Uri pdfUri = null;
     Uri imgUri = null;
@@ -42,6 +42,11 @@ public class UploadResources extends AppCompatActivity {
 
         initialise();
 
+        if(grp.getCheckedRadioButtonId() == R.id.btnLink)
+            layLink.setVisibility(View.VISIBLE);
+        else
+            layLink.setVisibility(View.GONE);
+
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +55,12 @@ public class UploadResources extends AppCompatActivity {
             }
         });
 
+        btnSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
     }
 
     private void checkUploadOption() {
@@ -67,10 +77,13 @@ public class UploadResources extends AppCompatActivity {
         else if(grp.getCheckedRadioButtonId() == R.id.btnLink)
         {
             layLink.setVisibility(View.VISIBLE);
-            /*String link = etLink.getText().toString().trim();
-            DatabaseReference linkRef = FirebaseDatabase.getInstance().getReference("Link");
-            linkRef.push().setValue(link);*/
-            Toast.makeText(this, "link", Toast.LENGTH_SHORT).show();
+            String link = etLink.getText().toString().trim();
+            if(!link.isEmpty()) {
+                DatabaseReference linkRef = FirebaseDatabase.getInstance().getReference("Link");
+                linkRef.push().setValue(link);
+            }
+            else
+            Toast.makeText(this, "no link provided", Toast.LENGTH_SHORT).show();
         }
         else if(grp.getCheckedRadioButtonId() == R.id.btnImage)
         {
@@ -90,10 +103,12 @@ public class UploadResources extends AppCompatActivity {
 
     private void initialise() {
         btnUpload = findViewById(R.id.btnUpload);
+        btnSelect = findViewById(R.id.btnSelect);
         grp = findViewById(R.id.uploadGrp);
         layLink = findViewById(R.id.layLink);
         etDesc = findViewById(R.id.etDesc);
         etLink = findViewById(R.id.etLink);
+        etName = findViewById(R.id.etName);
         progressBar = findViewById(R.id.progressBar);
     }
 
