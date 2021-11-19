@@ -74,6 +74,7 @@ public class TalkActivity extends AppCompatActivity {
                     map.put("Number of attendees", num);
                     map.put("Year allowed", year);
                     map.put("Scheduled by", name);
+                    
                     ref.push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
