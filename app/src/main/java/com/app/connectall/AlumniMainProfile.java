@@ -29,6 +29,7 @@ public class AlumniMainProfile extends AppCompatActivity {
     MaterialButton btnAlmEdit;
     CircleImageView cvAlmImg;
     String uid;
+    String name;
     FloatingActionButton fbUpload, fbTalk;
 
     @Override
@@ -47,7 +48,10 @@ public class AlumniMainProfile extends AppCompatActivity {
         fbTalk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AlumniMainProfile.this, TalkActivity.class));
+                Intent intent = new Intent(AlumniMainProfile.this, TalkActivity.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+
             }
         });
     }
@@ -83,7 +87,7 @@ public class AlumniMainProfile extends AppCompatActivity {
 
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
-                        String name = s.child("Name").getValue().toString();
+                        name = s.child("Name").getValue().toString();
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
@@ -106,7 +110,7 @@ public class AlumniMainProfile extends AppCompatActivity {
 
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
-                        String name = s.child("Name").getValue().toString();
+                        name = s.child("Name").getValue().toString();
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
@@ -129,7 +133,7 @@ public class AlumniMainProfile extends AppCompatActivity {
 
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
-                        String name = s.child("Name").getValue().toString();
+                        name = s.child("Name").getValue().toString();
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);

@@ -77,7 +77,8 @@
         android:text="EDIT PROFILE"
         app:layout_constraintStart_toEndOf="@id/cvAlmImg"
         app:layout_constraintTop_toBottomOf="@id/tvAlmBatch"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableEnd="@drawable/edit"/>
 
         </LinearLayout>
 
