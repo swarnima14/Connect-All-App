@@ -159,7 +159,7 @@
                     android:id="@+id/rbTech"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:text="Corporate/Technical Sector" />
+                    android:text="Corporate or Technical Sector" />
 
                 <RadioButton
                     android:id="@+id/rbHigher"

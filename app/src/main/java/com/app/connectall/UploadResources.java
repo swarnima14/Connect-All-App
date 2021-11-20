@@ -3,12 +3,15 @@ package com.app.connectall;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -25,15 +28,20 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
+
 public class UploadResources extends AppCompatActivity {
 
-    MaterialButton btnUpload, btnSelect;
+    MaterialButton btnUpload, btnUploadLink, btnSel;
     RadioGroup grp;
-    TextInputEditText etLink, etDesc, etName;
+    TextInputEditText etLink, etDesc, etName, etDescLink;
     TextInputLayout layLink;
     Uri pdfUri = null;
     Uri imgUri = null;
-    ProgressBar progressBar;
+    ProgressDialog progressDialog;
+    String uploadedBy, domain;
+    ImageView imgUpload;
+    Boolean checkImg = false, checkPdf = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,24 +49,112 @@ public class UploadResources extends AppCompatActivity {
         setContentView(R.layout.act6_upload_resources);
 
         initialise();
+        uploadedBy = getIntent().getStringExtra("name");
+        domain = getIntent().getStringExtra("domain");
 
-        if(grp.getCheckedRadioButtonId() == R.id.btnLink)
-            layLink.setVisibility(View.VISIBLE);
-        else
-            layLink.setVisibility(View.GONE);
-
-        btnUpload.setOnClickListener(new View.OnClickListener() {
+        btnSel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 checkUploadOption();
             }
         });
-
-        btnSelect.setOnClickListener(new View.OnClickListener() {
+        btnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkImg)
+                    upload(imgUri, "jpg");
+                if(checkPdf)
+                    upload(pdfUri, "pdf");
+            }
+        });
+        btnUploadLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                String descLink = etDescLink.getText().toString().trim();
+                String link = etLink.getText().toString().trim();
+                uploadLink(descLink, link);
+            }
+        });
+    }
+
+    private void uploadLink(String descLink, String link) {
+        progressDialog.show();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Uploads").child(domain).child("links");
+        HashMap<String, String> map = new HashMap<>();
+        map.put("desc", descLink);
+        map.put("name", "link");
+        map.put("uploaded by", uploadedBy);
+        map.put("url", link);
+        String pushId = databaseReference.push().getKey();
+        databaseReference.child(pushId).setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(UploadResources.this, "Link uploaded successfully", Toast.LENGTH_SHORT).show();
+                etDescLink.setText("");
+                etLink.setText("");
+                progressDialog.dismiss();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(UploadResources.this, "Not uploaded", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        });
+    }
+
+    private void upload(Uri uri, String type)
+    {
+        progressDialog.show();
+        String name = etName.getText().toString().trim();
+        String desc = etDesc.getText().toString().trim();
+
+        String time = "" + System.currentTimeMillis();
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Uploads").child(domain).child(type);
+        String pushId = time;
+
+        StorageReference path = storageReference.child(pushId + "." + type);
+        path.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        String pushId = databaseReference.push().getKey();
+
+                        HashMap<String, String> map = new HashMap<>();
+                        map.put("name", name);
+                        map.put("desc", desc);
+                        map.put("uploaded by", uploadedBy);
+                        map.put("url", uri.toString());
+                        databaseReference.child(pushId).setValue(map);
+
+                        //databaseReference.child(pushId).setValue(uri.toString());
+                    }
+                });
+                progressDialog.dismiss();
+                imgUpload.setVisibility(View.GONE);
+                etDesc.setText("");
+                etName.setText("");
+                grp.clearCheck();
+                Toast.makeText(UploadResources.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
+            }
+
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(UploadResources.this, "Failed", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+                imgUpload.setVisibility(View.GONE);
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                progressDialog.show();
+                imgUpload.setVisibility(View.GONE);
             }
         });
     }
@@ -67,27 +163,14 @@ public class UploadResources extends AppCompatActivity {
 
         if(grp.getCheckedRadioButtonId() == R.id.btnPdf)
         {
-            layLink.setVisibility(View.GONE);
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_GET_CONTENT);
             intent.setType("application/pdf");
             startActivityForResult(intent, 1);
             Toast.makeText(this, "pdf", Toast.LENGTH_SHORT).show();
         }
-        else if(grp.getCheckedRadioButtonId() == R.id.btnLink)
-        {
-            layLink.setVisibility(View.VISIBLE);
-            String link = etLink.getText().toString().trim();
-            if(!link.isEmpty()) {
-                DatabaseReference linkRef = FirebaseDatabase.getInstance().getReference("Link");
-                linkRef.push().setValue(link);
-            }
-            else
-            Toast.makeText(this, "no link provided", Toast.LENGTH_SHORT).show();
-        }
         else if(grp.getCheckedRadioButtonId() == R.id.btnImage)
         {
-            layLink.setVisibility(View.GONE);
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
             /*intent.setAction(Intent.ACTION_GET_CONTENT);
             intent.setType("image");*/
@@ -96,20 +179,25 @@ public class UploadResources extends AppCompatActivity {
         }
         else
         {
-            layLink.setVisibility(View.GONE);
             Toast.makeText(this, "select from above group", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void initialise() {
         btnUpload = findViewById(R.id.btnUpload);
-        btnSelect = findViewById(R.id.btnSelect);
+        btnUploadLink = findViewById(R.id.btnUploadLink);
+        btnSel = findViewById(R.id.btnSelect);
+        imgUpload = findViewById(R.id.imgUpload);
         grp = findViewById(R.id.uploadGrp);
         layLink = findViewById(R.id.layLink);
         etDesc = findViewById(R.id.etDesc);
         etLink = findViewById(R.id.etLink);
         etName = findViewById(R.id.etName);
-        progressBar = findViewById(R.id.progressBar);
+        etDescLink = findViewById(R.id.etDescLink);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please Wait....");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
     }
 
     @Override
@@ -118,74 +206,18 @@ public class UploadResources extends AppCompatActivity {
 
         if(resultCode == RESULT_OK && requestCode == 1)
         {
+            imgUpload.setVisibility(View.VISIBLE);
             pdfUri = data.getData();
-            final String time = "" + System.currentTimeMillis();
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("PDF");
-            final String pushId = time;
-
-            final StorageReference path = storageReference.child(pushId + "." + "pdf");
-            path.putFile(pdfUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            String pushId = databaseReference.push().getKey();
-                            databaseReference.child(pushId).setValue(uri.toString());
-                        }
-                    });
-                    progressBar.setVisibility(View.GONE);
-                }
-
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(UploadResources.this, "Failed", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                }
-            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                    progressBar.setVisibility(View.VISIBLE);
-                }
-            });
+            checkImg = false;
+            checkPdf = true;
         }
 
         if(requestCode == 2 && resultCode == RESULT_OK)
         {
             imgUri = data.getData();
-
-            final String time = "" + System.currentTimeMillis();
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Image");
-            final String pushId = time;
-
-            final StorageReference path = storageReference.child(pushId + "." + "jpg");
-            path.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            String pushId = databaseReference.push().getKey();
-                            databaseReference.child(pushId).setValue(uri.toString());
-                        }
-                    });
-                    progressBar.setVisibility(View.GONE);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(UploadResources.this, "Failed", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                }
-            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                    progressBar.setVisibility(View.VISIBLE);
-                }
-            });
+            imgUpload.setVisibility(View.VISIBLE);
+            checkImg = true;
+            checkPdf = false;
         }
     }
 }

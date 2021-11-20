@@ -29,7 +29,7 @@ public class AlumniMainProfile extends AppCompatActivity {
     MaterialButton btnAlmEdit;
     CircleImageView cvAlmImg;
     String uid;
-    String name;
+    String name, domain;
     FloatingActionButton fbUpload, fbTalk;
 
     @Override
@@ -42,7 +42,10 @@ public class AlumniMainProfile extends AppCompatActivity {
         fbUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AlumniMainProfile.this, UploadResources.class));
+                Intent intent = new Intent(AlumniMainProfile.this, UploadResources.class);
+                intent.putExtra("name", name);
+                intent.putExtra("domain", domain);
+                startActivity(intent);
             }
         });
         fbTalk.setOnClickListener(new View.OnClickListener() {
@@ -50,8 +53,8 @@ public class AlumniMainProfile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AlumniMainProfile.this, TalkActivity.class);
                 intent.putExtra("name", name);
+                intent.putExtra("domain", domain);
                 startActivity(intent);
-
             }
         });
     }
@@ -73,7 +76,7 @@ public class AlumniMainProfile extends AppCompatActivity {
         progressDialog.setIndeterminate(true);
         progressDialog.show();
 
-        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("Alumni").child("Corporate/Technical Sector");
+        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("Alumni").child("Corporate or Technical Sector");
         DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference().child("Alumni").child("Higher Studies");
         DatabaseReference databaseReference3 = FirebaseDatabase.getInstance().getReference().child("Alumni").child("Government Sector");
         String uid = FirebaseAuth.getInstance().getUid();
@@ -88,6 +91,7 @@ public class AlumniMainProfile extends AppCompatActivity {
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
                         name = s.child("Name").getValue().toString();
+                        domain = "Tech sector";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
@@ -111,6 +115,7 @@ public class AlumniMainProfile extends AppCompatActivity {
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
                         name = s.child("Name").getValue().toString();
+                        domain = "Higher studies";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
@@ -130,10 +135,10 @@ public class AlumniMainProfile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot s:  snapshot.getChildren())
                 {
-
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
                         name = s.child("Name").getValue().toString();
+                        domain = "Govn sector";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);

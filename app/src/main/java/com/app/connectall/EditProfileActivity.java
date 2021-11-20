@@ -66,7 +66,6 @@ public class EditProfileActivity extends AppCompatActivity {
                     Toast.makeText(EditProfileActivity.this, "Nothing selected from the radio group", Toast.LENGTH_SHORT).show();
                 }
 
-
                 hashMapFirst = new HashMap<>();
                 hashMapFirst.put("Name", name);
                 hashMapFirst.put("Graduation year", grad);

@@ -25,7 +25,7 @@ public class TalkActivity extends AppCompatActivity {
     MaterialButton btnSchedule;
     DatePickerDialog datePickerDialog;
     TimePickerDialog picker;
-    String uid, name;
+    String uid, name, domain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class TalkActivity extends AppCompatActivity {
 
         initialise();
         name = getIntent().getStringExtra("name");
-
+        domain = getIntent().getStringExtra("domain");
 
         etDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +65,7 @@ public class TalkActivity extends AppCompatActivity {
                     Toast.makeText(TalkActivity.this, "All fields required", Toast.LENGTH_SHORT).show();
                 else
                 {
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Talk Schedules");
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Talk Schedules").child(domain);
                     HashMap<String, String> map = new HashMap<>();
                     map.put("Topic", topic);
                     map.put("Platform", platform);
@@ -74,7 +74,7 @@ public class TalkActivity extends AppCompatActivity {
                     map.put("Number of attendees", num);
                     map.put("Year allowed", year);
                     map.put("Scheduled by", name);
-                    
+
                     ref.push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
