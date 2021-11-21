@@ -89,4 +89,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Alumni of IIITU in your domain."
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.616" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="305dp"
+        android:layout_height="143dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.801">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:text="Corporate/Technical Sector" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="153dp"
+            android:layout_height="40dp"
+            android:text="Higher Studies" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="153dp"
+            android:layout_height="40dp"
+            android:text="Government Sector" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Alumni"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
