@@ -1,4 +1,4 @@
-gitpackage com.app.connectall;
+package com.app.connectall;
 
 import androidx.appcompat.app.AppCompatActivity;
 
