@@ -45,7 +45,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("TYPE_PREF",MODE_PRIVATE);
         String type = preferences.getString("type", null);
-        Toast.makeText(this, "type: "+type, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "type: "+type, Toast.LENGTH_SHORT).show();
 
         initialise();
 
@@ -63,7 +63,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     String selectedRbText = selectedRadioButton.getText().toString();
                     domain = selectedRbText;
                 } else {
-                    Toast.makeText(EditProfileActivity.this, "Nothing selected from the radio group", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(EditProfileActivity.this, "Nothing selected from the radio group", Toast.LENGTH_SHORT).show();
                 }
 
                 hashMapFirst = new HashMap<>();
@@ -126,6 +126,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor = preferences.edit();
                             editor.putString("Alumni status", "profile complete");
                             editor.apply();
+                            Toast.makeText(EditProfileActivity.this, "Profile created successfully", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(EditProfileActivity.this, AlumniMainProfile.class));
                             finish();
                         }
@@ -153,5 +154,19 @@ public class EditProfileActivity extends AppCompatActivity {
         almMail = findViewById(R.id.almMail);
         almWorkExp = findViewById(R.id.almWorkExp);
         radioGroup = findViewById(R.id.radioGrp);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences preferences = getSharedPreferences("Alumni status",MODE_PRIVATE);
+
+        String type = preferences.getString("Alumni status","not defined");
+        if(type.equals("profile complete"))
+        {
+            startActivity(new Intent(EditProfileActivity.this, AlumniMainProfile.class));
+            finish();
+        }
+
     }
 }

@@ -26,7 +26,6 @@
         app:layout_constraintStart_toEndOf="@id/tvHi"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
-        android:text="qqqqqqqqqqqqqq"
         android:textSize="26sp"
         android:padding="3dp"
         android:textStyle="italic"/>
@@ -61,7 +60,7 @@
         android:id="@+id/tvAlmBatch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BATCH OF 2023"
+
         android:textSize="22sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@id/cvAlmImg"
