@@ -9,19 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConnectAll">
-        <activity android:name=".Alumni_List_Filtered"></activity>
+        <activity android:name=".Alumni_List_Filtered"/>
         <activity android:name=".AlumniMainProfile" />
         <activity android:name=".TalkActivity" />
         <activity android:name=".Alumni_List" />
         <activity android:name=".StudentProfileActivity" />
-        <activity android:name=".LauncherActivity" />
-        <activity android:name=".UploadResources" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".UploadResources" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".EditProfileActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.ConnectAll.NoActionBar" />
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".LauncherActivity"
+            android:theme="@style/Theme.ConnectAll.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
