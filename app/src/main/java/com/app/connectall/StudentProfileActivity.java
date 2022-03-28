@@ -14,7 +14,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class StudentProfileActivity extends AppCompatActivity {
 
-    MaterialButton btnViewList, btnSearchAlm;
+    MaterialButton btnViewList, btnSearchAlm, btnResources, btnTalk;
     RadioGroup radioGroup;
     String domain;
 
@@ -57,11 +57,28 @@ public class StudentProfileActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnResources.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        btnTalk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void initialise() {
+
         btnViewList = findViewById(R.id.btnViewList);
         btnSearchAlm = findViewById(R.id.btnSearchAlm);
+        btnResources = findViewById(R.id.btnViewResources);
+        btnTalk = findViewById(R.id.btnViewTalk);
         radioGroup = findViewById(R.id.radioGroup);
 
     }

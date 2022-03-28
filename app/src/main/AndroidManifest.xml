@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConnectAll">
-        <activity android:name=".Alumni_List_Filtered"/>
+        <activity android:name=".ViewUploadedResources"></activity>
+        <activity android:name=".Alumni_List_Filtered" />
         <activity android:name=".AlumniMainProfile" />
         <activity android:name=".TalkActivity" />
         <activity android:name=".Alumni_List" />
@@ -21,7 +22,8 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.ConnectAll.NoActionBar" />
-        <activity android:name=".LauncherActivity"
+        <activity
+            android:name=".LauncherActivity"
             android:theme="@style/Theme.ConnectAll.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
