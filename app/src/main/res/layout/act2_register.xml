@@ -99,11 +99,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                app:cornerRadius="10dp"
                 android:layout_marginTop="20dp"
                 android:elevation="30dp"
                 android:text="Register"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                app:backgroundTint="@color/design_default_color_primary_variant"
+                app:cornerRadius="10dp" />
 
             <TextView
                 android:id="@+id/txtWarning"
