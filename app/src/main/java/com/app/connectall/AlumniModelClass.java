@@ -9,6 +9,7 @@ public class AlumniModelClass {
     private String mail;
     private String name;
     private String exp;
+    private boolean expanded=false;
 
     /*public AlumniModelClass(String branch, String company, String expNum, String gradYear, String linkedIn, String mail, String name, String exp) {
         this.branch = branch;
@@ -53,6 +54,8 @@ public class AlumniModelClass {
         return exp;
     }
 
+    private boolean getExpanded() {return expanded;}
+
     public void setBranch(String branch) {
         this.branch = branch;
     }
@@ -83,5 +86,11 @@ public class AlumniModelClass {
 
     public void setExp(String exp) {
         this.exp = exp;
+    }
+
+    public void setExpanded(boolean expanded){this.expanded = expanded;}
+
+    public boolean isExpanded() {
+        return expanded;
     }
 }
