@@ -44,20 +44,20 @@ public class MainActivity extends AppCompatActivity {
         alumni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("type", "alumni");
-                editor.apply();
+                /*editor.putString("type", "alumni");
+                editor.apply();*/
                 startActivity(new Intent(MainActivity.this, EditProfileActivity.class));
-                finish();
+                //finish();
             }
         });
 
         student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("type", "student");
-                editor.apply();
+                /*editor.putString("type", "student");
+                editor.apply();*/
                 startActivity(new Intent(MainActivity.this, StudentProfileActivity.class));
-                finish();
+                //finish();
             }
         });
     }
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        SharedPreferences preferences = getSharedPreferences("TYPE_PREF",MODE_PRIVATE);
+        /*SharedPreferences preferences = getSharedPreferences("TYPE_PREF",MODE_PRIVATE);
 
         String type = preferences.getString("type","not defined");
         if(type.equals("alumni"))
@@ -100,6 +100,6 @@ public class MainActivity extends AppCompatActivity {
         {
             startActivity(new Intent(MainActivity.this, StudentProfileActivity.class));
             finish();
-        }
+        }*/
     }
 }

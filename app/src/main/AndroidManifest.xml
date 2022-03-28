@@ -11,24 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConnectAll">
-        <activity android:name=".Alumni_List"></activity>
+
+        <activity android:name=".AlumniMainProfile"/>
         <activity android:name=".TalkActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".Alumni_List" />
         <activity android:name=".StudentProfileActivity" />
         <activity android:name=".LauncherActivity" />
         <activity android:name=".UploadResources" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".EditProfileActivity" />
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.ConnectAll.NoActionBar" />
-        <activity android:name=".AlumniMainProfile">
+
+        <activity android:name=".RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
