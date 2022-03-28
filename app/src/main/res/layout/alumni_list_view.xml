@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:text="Domain: "
+            android:text="Branch: "
             android:padding="3dp"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"

@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.connectall">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConnectAll">
-
-        <activity android:name=".AlumniMainProfile"/>
+        <activity android:name=".Alumni_List_Filtered"></activity>
+        <activity android:name=".AlumniMainProfile" />
         <activity android:name=".TalkActivity" />
         <activity android:name=".Alumni_List" />
         <activity android:name=".StudentProfileActivity" />
@@ -20,11 +18,9 @@
         <activity android:name=".UploadResources" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".EditProfileActivity" />
-
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.ConnectAll.NoActionBar" />
-
         <activity android:name=".RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

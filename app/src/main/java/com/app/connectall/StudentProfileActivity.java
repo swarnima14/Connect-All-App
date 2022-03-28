@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ public class StudentProfileActivity extends AppCompatActivity {
 
     MaterialButton btnViewList, btnSearchAlm;
     RadioGroup radioGroup;
+    String domain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class StudentProfileActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("TYPE_PREF",MODE_PRIVATE);
         String type = preferences.getString("type", null);
         Toast.makeText(this, "type: "+type, Toast.LENGTH_SHORT).show();
+
+
 
         initialise();
 
@@ -38,6 +42,19 @@ public class StudentProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Toast.makeText(StudentProfileActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+                int selBtnId = radioGroup.getCheckedRadioButtonId();
+                if(selBtnId != -1) {
+                    RadioButton selRB = findViewById(selBtnId);
+                    domain = selRB.getText().toString().trim();
+                    Intent intent = new Intent(StudentProfileActivity.this, Alumni_List_Filtered.class);
+                    intent.putExtra("domain", domain);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(StudentProfileActivity.this, "No domain selected.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -45,7 +62,8 @@ public class StudentProfileActivity extends AppCompatActivity {
     private void initialise() {
         btnViewList = findViewById(R.id.btnViewList);
         btnSearchAlm = findViewById(R.id.btnSearchAlm);
-        radioGroup = findViewById(R.id.radioGrp);
+        radioGroup = findViewById(R.id.radioGroup);
+
     }
 
 }

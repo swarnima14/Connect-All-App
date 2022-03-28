@@ -25,12 +25,15 @@ public class Alumni_List extends AppCompatActivity {
     AlumniModelClass alumniList;
     ArrayList<AlumniModelClass> list;
     AlumniModelAdapter alumniModelAdapter;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alumni__list);
 
+        textView = findViewById(R.id.tv);
+        textView.setText("ALUMNI LIST");
         rcAlmList = findViewById(R.id.rcAlmList);
 
         list = new ArrayList<>();
