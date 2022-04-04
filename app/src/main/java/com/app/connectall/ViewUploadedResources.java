@@ -36,7 +36,6 @@ public class ViewUploadedResources extends AppCompatActivity {
         );
 
         db = FirebaseDatabase.getInstance().getReference().child("Uploads").child("Govn sector").child("pdf");
-
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
