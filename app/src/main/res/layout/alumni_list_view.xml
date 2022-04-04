@@ -23,15 +23,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/cvStuImg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:src="@drawable/profile"
-                app:civ_border_color="@color/colorPrimaryDark"
+                app:civ_border_color="@color/white"
                 app:civ_border_width="2dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
@@ -62,7 +62,7 @@
                     android:text="Batch of Alumni"
                     android:textSize="18sp"
                     android:textStyle="italic"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
     android:id="@+id/expandableLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -85,6 +85,7 @@
     android:background="#fff"
     app:cardCornerRadius="6dp"
     app:cardElevation="4dp"
+    app:strokeColor="@color/colorPrimaryDark"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -95,6 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
             android:id="@+id/tvBranch"
             android:layout_width="wrap_content"
@@ -102,10 +104,13 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="Branch: "
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             android:padding="3dp"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
 
 
@@ -118,6 +123,8 @@
             android:text="LinkedIn: "
             android:textSize="16sp"
             android:padding="3dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvBranch" />
 
@@ -128,12 +135,15 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:text="Mail ID: "
+            android:drawableStart="@drawable/email"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
+            android:textStyle="bold"
             android:padding="3dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLinkedin" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

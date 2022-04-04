@@ -61,7 +61,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         btnResources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(StudentProfileActivity.this, ViewUploadedResources.class));
             }
         });
 

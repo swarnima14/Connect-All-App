@@ -36,7 +36,7 @@ public class AlumniModelAdapter extends RecyclerView.Adapter<AlumniModelAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.tvItemBatch.setText(almList.get(position).getGradYear());
+        holder.tvItemBatch.setText("Batch of " + almList.get(position).getGradYear());
         holder.tvItemName.setText(almList.get(position).getName());
         holder.tvItemBranch.setText("Branch: " + almList.get(position).getBranch());
         holder.tvItemMail.setText("Mail: " + almList.get(position).getMail());
@@ -67,8 +67,8 @@ public class AlumniModelAdapter extends RecyclerView.Adapter<AlumniModelAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvItemBatch,tvItemName, tvItemBranch, tvItemMail, tvItemLinkedin;
-        MaterialCardView materialCardView;
-        CardView expandableLayout;
+        MaterialCardView materialCardView, expandableLayout;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

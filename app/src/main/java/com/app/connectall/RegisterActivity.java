@@ -38,12 +38,12 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String mail = etMail.getText().toString().trim();
                 String pass = etPass.getText().toString().trim();
-                if(!mail.contains("iiitu"))
+               /* if(!mail.contains("iiitu"))
                 {
                     etMail.requestFocus();
                     Snackbar.make(v, "Invalid email id." , Snackbar.LENGTH_SHORT).show();
                 }
-                else
+                else*/
                 signIn(mail, pass);
             }
         });
