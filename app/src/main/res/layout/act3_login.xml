@@ -83,14 +83,18 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="107dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            app:cornerRadius="10dp"
             android:layout_marginTop="20dp"
+            android:backgroundTint="#71D875"
+            android:backgroundTintMode="add"
             android:elevation="30dp"
             android:text="Login"
-            android:textSize="15sp"/>
+            android:textColor="#5012BD "
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp" />
 
         <TextView
             android:id="@+id/txtWarningLogin"
