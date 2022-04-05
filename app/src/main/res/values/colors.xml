@@ -10,7 +10,7 @@
 
 
     <color name="colorPrimary">#5012BD </color>
-    <color name="colorPrimaryDark">#3D0000</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#D8B6A4</color>
     <color name="colorAccentNext">#D57E7E</color>
     <color name="colorJoined">#FFFFFF</color>
