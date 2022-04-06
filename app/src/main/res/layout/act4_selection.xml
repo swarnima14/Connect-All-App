@@ -4,58 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="#FFFFFF"
+    android:backgroundTint="#F2EDFF"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
+        style="@style/Widget.AppCompat.PopupMenu"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        style="@style/Widget.AppCompat.PopupMenu">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:theme="@style/Widget.AppCompat.PopupMenu"/>
+            android:theme="@style/Widget.AppCompat.PopupMenu" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSelAlumni"
-        android:layout_width="106dp"
-        android:layout_height="49dp"
+        android:layout_width="139dp"
+        android:layout_height="54dp"
         android:text="ALUMNI"
+        android:textColor="#5012BD"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="#71D875"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSelStudent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="137dp"
+        android:layout_height="55dp"
         android:layout_marginTop="24dp"
         android:text="STUDENT"
+        android:textColor="#5012BD"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="#71D875"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnSelAlumni" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_width="210dp"
+        android:layout_height="55dp"
         android:text="Create Your Profile"
+        android:textAlignment="center"
+        android:textColor="#5012BD"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.169" />
 
     <TextView
         android:id="@+id/textView2"
@@ -63,7 +80,9 @@
         android:layout_height="41dp"
         android:text="If you are a student currently enrolled, create your student profile."
         android:textAlignment="center"
+        android:textColor="#5012BD"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +95,9 @@
         android:layout_height="42dp"
         android:text="If you are a IIITU graduate, create your alumni profile."
         android:textAlignment="center"
+        android:textColor="#5012BD"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
