@@ -91,7 +91,7 @@ public class AlumniMainProfile extends AppCompatActivity {
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
                         name = s.child("Name").getValue().toString();
-                        domain = "Tech sector";
+                        domain = "Corporate or Technical Sector";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
@@ -115,7 +115,7 @@ public class AlumniMainProfile extends AppCompatActivity {
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
                         name = s.child("Name").getValue().toString();
-                        domain = "Higher studies";
+                        domain = "Higher Studies";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
@@ -138,7 +138,7 @@ public class AlumniMainProfile extends AppCompatActivity {
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
                         name = s.child("Name").getValue().toString();
-                        domain = "Govn sector";
+                        domain = "Government Sector";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);

@@ -10,12 +10,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,8 +50,25 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 /*editor.putString("type", "alumni");
                 editor.apply();*/
-                startActivity(new Intent(MainActivity.this, EditProfileActivity.class));
-                //finish();
+                SharedPreferences preferences = getSharedPreferences("Alumni status",MODE_PRIVATE);
+
+                String type = preferences.getString("Alumni status","not defined");
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = currentUser.getUid();
+                if(currentUser!=null)
+                {
+                    if(type.equals("profile complete"))
+                        startActivity(new Intent(MainActivity.this, AlumniMainProfile.class));
+
+                    else
+                        startActivity(new Intent(MainActivity.this, EditProfileActivity.class));
+
+                }
+                else
+                {
+                    startActivity(new Intent(MainActivity.this, EditProfileActivity.class));
+                }
+
             }
         });
 

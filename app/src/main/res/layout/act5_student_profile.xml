@@ -81,7 +81,7 @@
 
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <!--<com.google.android.material.button.MaterialButton
         android:id="@+id/btnViewResources"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,28 +89,62 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="5dp"
+        app:cornerRadius="10dp"/>-->
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose domain to continue"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGovSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GOVERNMENT SECTOR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView9"
+        android:layout_marginTop="5dp"
         app:cornerRadius="10dp"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnViewTalk"
+        android:id="@+id/btnTechSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="VIEW TALK SCHEDULES"
+        android:text="CORPORATE SECTOR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnViewResources"
+        app:layout_constraintTop_toBottomOf="@id/btnGovSelection"
         android:layout_marginTop="10dp"
         app:cornerRadius="10dp"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnHigherSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HIGHER STUDIES"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnTechSelection"
+        android:layout_marginTop="10dp"
+        app:cornerRadius="10dp"/>
+
+    <!-- <com.google.android.material.button.MaterialButton
         android:id="@+id/btnViewList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VIEW ALUMNI LIST"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnViewTalk"
+        app:layout_constraintTop_toBottomOf="@id/btnHigherSelection"
         android:layout_marginTop="10dp"
         app:cornerRadius="10dp"/>
 
@@ -126,7 +160,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnViewList"/>
 
 
-    <RadioGroup
+   <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -166,6 +200,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/radioGroup"
         android:layout_marginTop="10dp"
-        app:cornerRadius="10dp"/>
+        app:cornerRadius="10dp"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

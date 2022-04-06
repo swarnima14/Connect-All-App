@@ -23,11 +23,14 @@ public class ViewUploadedResources extends AppCompatActivity {
     UploadModel uploadModel;
     ArrayList<UploadModel> uploadModelArrayList;
     UploadAdapter uploadAdapter;
+    String domain, typeRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_uploaded_resources);
+
+        domain = getIntent().getStringExtra("domain");
 
         rcUploadList = findViewById(R.id.rvResources);
         uploadModelArrayList = new ArrayList<>();
@@ -35,8 +38,60 @@ public class ViewUploadedResources extends AppCompatActivity {
                 new LinearLayoutManager(ViewUploadedResources.this, LinearLayoutManager.VERTICAL, false)
         );
 
-        db = FirebaseDatabase.getInstance().getReference().child("Uploads").child("Govn sector").child("pdf");
-        db.addValueEventListener(new ValueEventListener() {
+        db = FirebaseDatabase.getInstance().getReference().child("Uploads").child(domain);
+        db.child("pdf").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot s: snapshot.getChildren())
+                {
+                    uploadModel = new UploadModel();
+                    uploadModel.setName(s.child("name").getValue().toString());
+                    uploadModel.setDesc(s.child("desc").getValue().toString());
+                    uploadModel.setLink(s.child("url").getValue().toString());
+                    uploadModel.setUploadedBy(s.child("uploaded by").getValue().toString());
+
+
+                    uploadModelArrayList.add(uploadModel);
+                    uploadAdapter = new UploadAdapter(ViewUploadedResources.this, uploadModelArrayList);
+                    rcUploadList.setAdapter(uploadAdapter);
+                    uploadAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ViewUploadedResources.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        db.child("jpg").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot s: snapshot.getChildren())
+                {
+                    uploadModel = new UploadModel();
+                    uploadModel.setName(s.child("name").getValue().toString());
+                    uploadModel.setDesc(s.child("desc").getValue().toString());
+                    uploadModel.setLink(s.child("url").getValue().toString());
+                    uploadModel.setUploadedBy(s.child("uploaded by").getValue().toString());
+
+
+                    uploadModelArrayList.add(uploadModel);
+                    uploadAdapter = new UploadAdapter(ViewUploadedResources.this, uploadModelArrayList);
+                    rcUploadList.setAdapter(uploadAdapter);
+                    uploadAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ViewUploadedResources.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        db.child("links").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
