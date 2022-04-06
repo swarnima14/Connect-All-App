@@ -12,10 +12,13 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.squareup.picasso.Picasso;
 
 import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AlumniModelAdapter extends RecyclerView.Adapter<AlumniModelAdapter.MyViewHolder> {
 
@@ -36,6 +39,7 @@ public class AlumniModelAdapter extends RecyclerView.Adapter<AlumniModelAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Picasso.with(context).load(almList.get(position).getImgUrl()).into(holder.cvAlm);
         holder.tvItemBatch.setText("Batch of " + almList.get(position).getGradYear());
         holder.tvItemName.setText(almList.get(position).getName());
         holder.tvItemBranch.setText("Branch: " + almList.get(position).getBranch());
@@ -68,6 +72,7 @@ public class AlumniModelAdapter extends RecyclerView.Adapter<AlumniModelAdapter.
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvItemBatch,tvItemName, tvItemBranch, tvItemMail, tvItemLinkedin;
         MaterialCardView materialCardView, expandableLayout;
+        CircleImageView cvAlm;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -78,6 +83,7 @@ public class AlumniModelAdapter extends RecyclerView.Adapter<AlumniModelAdapter.
             tvItemBranch = itemView.findViewById(R.id.tvBranch);
             tvItemMail = itemView.findViewById(R.id.tvMail);
             tvItemLinkedin = itemView.findViewById(R.id.tvLinkedin);
+            cvAlm = itemView.findViewById(R.id.cvStuImg);
 
             materialCardView = itemView.findViewById(R.id.materialCardView);
             expandableLayout = itemView.findViewById(R.id.expandableLayout);

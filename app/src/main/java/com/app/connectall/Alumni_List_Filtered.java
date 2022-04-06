@@ -58,6 +58,7 @@ public class Alumni_List_Filtered extends AppCompatActivity {
                         alumniList.setLinkedIn(s.child("LinkedIn").getValue().toString());
                         alumniList.setExp(s.child("Work Experience").getValue().toString());
                         alumniList.setExpNum(s.child("Experience").getValue().toString());
+                        alumniList.setImgUrl(s.child("Alumni Image URL").getValue().toString());
                         alumniList.setExpanded(false);
 
 
