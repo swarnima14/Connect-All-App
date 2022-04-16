@@ -44,7 +44,9 @@ public class MenuActivity extends AppCompatActivity {
         txtTalkList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MenuActivity.this, ViewTalkScheduleActivity.class);
+                intent.putExtra("domain", sector);
+                startActivity(intent);
             }
         });
     }

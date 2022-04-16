@@ -77,7 +77,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 /*editor.putString("type", "student");
                 editor.apply();*/
-                startActivity(new Intent(MainActivity.this, StudentProfileActivity.class));
+                SharedPreferences preferences = getSharedPreferences("Student Status",MODE_PRIVATE);
+
+                String type = preferences.getString("Status","not defined");
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = currentUser.getUid();
+                if(currentUser != null)
+                {
+                    if(type.equals("completed"))
+                    {
+                        Intent intent = new Intent(MainActivity.this, StudentProfileActivity.class);
+                        startActivity(intent);
+                    }
+
+
+                    else
+                    startActivity(new Intent(MainActivity.this, StudentFormActivity.class));
+                }
+                else
+                    startActivity(new Intent(MainActivity.this, StudentFormActivity.class));
+
                 //finish();
             }
         });

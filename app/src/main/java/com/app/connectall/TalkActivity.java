@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class TalkActivity extends AppCompatActivity {
 
-    TextInputEditText etTopic, etPlatform, etDate, etTime, etYear, etNum;
+    TextInputEditText etTopic, etPlatform, etDate, etTime, etYear, etLink;
     MaterialButton btnSchedule;
     DatePickerDialog datePickerDialog;
     TimePickerDialog picker;
@@ -58,10 +58,10 @@ public class TalkActivity extends AppCompatActivity {
                 String platform  = etPlatform.getText().toString().trim();
                 String date = etDate.getText().toString().trim();
                 String time = etTime.getText().toString().trim();
-                String num = etNum.getText().toString().trim();
+                String link = etLink.getText().toString().trim();
                 String year = etYear.getText().toString().trim();
 
-                if(topic.isEmpty() || platform.isEmpty() || date.isEmpty() || time.isEmpty() || num.isEmpty() || year.isEmpty())
+                if(topic.isEmpty() || platform.isEmpty() || date.isEmpty() || time.isEmpty() || link.isEmpty() || year.isEmpty())
                     Toast.makeText(TalkActivity.this, "All fields required", Toast.LENGTH_SHORT).show();
                 else
                 {
@@ -71,7 +71,7 @@ public class TalkActivity extends AppCompatActivity {
                     map.put("Platform", platform);
                     map.put("Date", date);
                     map.put("Time", time);
-                    map.put("Number of attendees", num);
+                    map.put("Meet Link", link);
                     map.put("Year allowed", year);
                     map.put("Scheduled by", name);
 
@@ -83,7 +83,7 @@ public class TalkActivity extends AppCompatActivity {
                             etPlatform.setText("");
                             etDate.setText("");
                             etTime.setText("");
-                            etNum.setText("");
+                            etLink.setText("");
                             etYear.setText("");
                         }
                     });
@@ -114,7 +114,7 @@ public class TalkActivity extends AppCompatActivity {
         etDate = findViewById(R.id.etDate);
         etTime = findViewById(R.id.etTime);
         etYear = findViewById(R.id.etYear);
-        etNum = findViewById(R.id.etNum);
+        etLink = findViewById(R.id.etMeetLink);
         btnSchedule = findViewById(R.id.btnSchedule);
     }
 

@@ -1,5 +1,6 @@
 package com.app.connectall;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,15 +9,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class StudentProfileActivity extends AppCompatActivity {
 
     MaterialButton btnViewList, btnSearchAlm, btnResources, btnGovSel, btnTechSel, btnHigherSel;
     RadioGroup radioGroup;
-    String domain;
+    String uid;
+
+    TextView tvStuName, tvStuBranch;
+    CircleImageView cvStuImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +118,39 @@ public class StudentProfileActivity extends AppCompatActivity {
         btnHigherSel = findViewById(R.id.btnHigherSelection);
         //radioGroup = findViewById(R.id.radioGroup);
 
+        tvStuName = findViewById(R.id.tvStuName);
+        tvStuBranch = findViewById(R.id.tvStuBranch);
+        cvStuImg = findViewById(R.id.cvStuImg);
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        String uid = FirebaseAuth.getInstance().getUid();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Students");
+
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot s: snapshot.getChildren()) {
+
+                    if (uid.equals(s.getRef().getKey().toString())) {
+
+                        Picasso.with(getApplicationContext()).load(s.child("Student Image URL").getValue().toString()).into(cvStuImg);
+                        tvStuName.setText(s.child("Name").getValue().toString());
+                        tvStuBranch.setText(s.child("Branch").getValue().toString());
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(StudentProfileActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
