@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class TalkActivity extends AppCompatActivity {
 
-    TextInputEditText etTopic, etPlatform, etDate, etTime, etYear, etLink;
+    TextInputEditText etTopic, etPlatform, etDate, etTime, etLink;
     MaterialButton btnSchedule;
     DatePickerDialog datePickerDialog;
     TimePickerDialog picker;
@@ -59,9 +59,8 @@ public class TalkActivity extends AppCompatActivity {
                 String date = etDate.getText().toString().trim();
                 String time = etTime.getText().toString().trim();
                 String link = etLink.getText().toString().trim();
-                String year = etYear.getText().toString().trim();
 
-                if(topic.isEmpty() || platform.isEmpty() || date.isEmpty() || time.isEmpty() || link.isEmpty() || year.isEmpty())
+                if(topic.isEmpty() || platform.isEmpty() || date.isEmpty() || time.isEmpty() || link.isEmpty())
                     Toast.makeText(TalkActivity.this, "All fields required", Toast.LENGTH_SHORT).show();
                 else
                 {
@@ -72,7 +71,6 @@ public class TalkActivity extends AppCompatActivity {
                     map.put("Date", date);
                     map.put("Time", time);
                     map.put("Meet Link", link);
-                    map.put("Year allowed", year);
                     map.put("Scheduled by", name);
 
                     ref.push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -84,7 +82,6 @@ public class TalkActivity extends AppCompatActivity {
                             etDate.setText("");
                             etTime.setText("");
                             etLink.setText("");
-                            etYear.setText("");
                         }
                     });
                 }
@@ -113,7 +110,6 @@ public class TalkActivity extends AppCompatActivity {
         etPlatform = findViewById(R.id.etPlatform);
         etDate = findViewById(R.id.etDate);
         etTime = findViewById(R.id.etTime);
-        etYear = findViewById(R.id.etYear);
         etLink = findViewById(R.id.etMeetLink);
         btnSchedule = findViewById(R.id.btnSchedule);
     }
