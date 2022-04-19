@@ -2,6 +2,7 @@ package com.app.connectall;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,7 +66,9 @@ public class TalkScheduleAdapter extends RecyclerView.Adapter<TalkScheduleAdapte
         holder.link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Uri uri = Uri.parse(scheduleModelArrayList.get(position).getLink().toString());
+                Intent i = new Intent(Intent.ACTION_VIEW, uri);
+                context.startActivity(i);
             }
         });
     }
