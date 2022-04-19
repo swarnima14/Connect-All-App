@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Topic: "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:padding="5sp"/>
+
+    <TextView
+        android:id="@+id/tvHost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTopic"
+        android:text="By: "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:padding="5sp"/>
+
+    <TextView
+        android:id="@+id/tvPlatform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHost"
+        android:text="Platform: "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:padding="5sp"/>
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPlatform"
+        android:text="Date: "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:padding="5sp"/>
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDate"
+        android:text="Time: "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:padding="5sp"/>
+
+    <TextView
+        android:id="@+id/tvLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTime"
+        android:text="Link: "
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:padding="5sp"/>
+
+    <ImageButton
+        android:id="@+id/ibCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/calendar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

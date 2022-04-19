@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -90,8 +91,9 @@ public class AlumniMainProfile extends AppCompatActivity {
 
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
+                        Picasso.with(getApplicationContext()).load(s.child("Alumni Image URL").getValue().toString()).into(cvAlmImg);
                         name = s.child("Name").getValue().toString();
-                        domain = "Tech sector";
+                        domain = "Corporate or Technical Sector";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
@@ -114,11 +116,13 @@ public class AlumniMainProfile extends AppCompatActivity {
 
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
+                        Picasso.with(getApplicationContext()).load(s.child("Alumni Image URL").getValue().toString()).into(cvAlmImg);
                         name = s.child("Name").getValue().toString();
-                        domain = "Higher studies";
+                        domain = "Higher Studies";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
+
                     }
                 }
                 progressDialog.dismiss();
@@ -137,11 +141,13 @@ public class AlumniMainProfile extends AppCompatActivity {
                 {
                     if(uid.equals(s.getRef().getKey().toString()))
                     {
+                        Picasso.with(getApplicationContext()).load(s.child("Alumni Image URL").getValue().toString()).into(cvAlmImg);
                         name = s.child("Name").getValue().toString();
-                        domain = "Govn sector";
+                        domain = "Government Sector";
                         String batch = s.child("Graduation year").getValue().toString();
                         tvAlmName.setText(name);
                         tvAlmBatch.setText("BATCH OF "+batch);
+
                     }
                 }
                 progressDialog.dismiss();

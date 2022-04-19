@@ -9,6 +9,7 @@ public class AlumniModelClass {
     private String mail;
     private String name;
     private String exp;
+    private String imgUrl;
     private boolean expanded=false;
 
     /*public AlumniModelClass(String branch, String company, String expNum, String gradYear, String linkedIn, String mail, String name, String exp) {
@@ -21,6 +22,14 @@ public class AlumniModelClass {
         this.name = name;
         this.exp = exp;
     }*/
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
     public String getBranch() {
         return branch;

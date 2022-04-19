@@ -61,10 +61,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvStuBatch"
+                android:id="@+id/tvStuBranch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Batch"
+                android:text="Branch: "
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -83,49 +84,62 @@
 
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnViewResources"
-        android:layout_width="173dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="45dp"
-        android:text="VIEW RESOURCES"
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Choose domain to continue"
         android:textColor="#5012BD "
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:backgroundTint="#71D875"
-        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnViewTalk"
-        android:layout_width="222dp"
-        android:layout_height="51dp"
+        android:id="@+id/btnGovSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="VIEW TALK SCHEDULES"
+        android:text="GOVERNMENT SECTOR"
         android:textColor="#5012BD "
         android:textStyle="bold"
         app:backgroundTint="#71D875"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnViewResources" />
+        app:layout_constraintTop_toBottomOf="@id/textView9" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnViewList"
-        android:layout_width="177dp"
-        android:layout_height="52dp"
+        android:id="@+id/btnTechSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="VIEW ALUMNI LIST"
+        android:text="CORPORATE or TECHNICAL SECTOR"
         android:textColor="#5012BD "
         android:textStyle="bold"
         app:backgroundTint="#71D875"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnViewTalk" />
+        app:layout_constraintTop_toBottomOf="@id/btnGovSelection" />
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnHigherSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="HIGHER STUDIES"
+        android:textColor="#5012BD "
+        android:textStyle="bold"
+        app:backgroundTint="#71D875"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnTechSelection" />
+
+   <!-- <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -188,6 +202,6 @@
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@id/radioGroup" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
