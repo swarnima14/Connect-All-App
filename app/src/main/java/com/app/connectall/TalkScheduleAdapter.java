@@ -1,16 +1,27 @@
 package com.app.connectall;
 
 import android.content.Context;
+import android.content.Intent;
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class TalkScheduleAdapter extends RecyclerView.Adapter<TalkScheduleAdapter.TalkViewHolder>{
 
@@ -42,13 +53,19 @@ public class TalkScheduleAdapter extends RecyclerView.Adapter<TalkScheduleAdapte
             @Override
             public void onClick(View view) {
 
+                try {
+
+                    AddCalendarEvent(holder, position);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
         holder.link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
             }
         });
     }
@@ -73,6 +90,43 @@ public class TalkScheduleAdapter extends RecyclerView.Adapter<TalkScheduleAdapte
             time = itemView.findViewById(R.id.tvTime);
             link = itemView.findViewById(R.id.tvLink);
             calendar = itemView.findViewById(R.id.ibCalendar);
+
         }
+    }
+
+    private void AddCalendarEvent(TalkViewHolder holder, int position) throws ParseException {
+
+       String startDate = scheduleModelArrayList.get(position).getDate().trim();
+       String startTime = scheduleModelArrayList.get(position).getTime().trim();
+
+        String start = startDate + " " + startTime;
+        Date sdf1 = new SimpleDateFormat("dd/MM/yyyy hh:mm aa").parse(start);
+
+
+        /*  Date time = new SimpleDateFormat("hh:mm aa").parse(startTime);
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa");
+        String strTime = sdf.format(time);
+
+
+
+        Date d = new SimpleDateFormat("dd/MM/yyyy").parse(startDate);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String strDate= formatter.format(d);*/
+
+
+
+
+
+
+        Calendar calendarEvent = Calendar.getInstance();
+
+        Intent i = new Intent(Intent.ACTION_EDIT).setData(CalendarContract.Events.CONTENT_URI);
+        i.setType("vnd.android.cursor.item/event");
+        i.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, sdf1.getTime());
+        //i.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, e);
+        i.putExtra("time", true);
+        i.putExtra("rule", "FREQ=YEARLY");
+        i.putExtra(CalendarContract.Events.TITLE, scheduleModelArrayList.get(position).getTopic());
+        context.startActivity(i);
     }
 }
