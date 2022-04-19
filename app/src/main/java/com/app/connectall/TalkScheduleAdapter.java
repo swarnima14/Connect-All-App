@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,11 +45,11 @@ public class TalkScheduleAdapter extends RecyclerView.Adapter<TalkScheduleAdapte
     public void onBindViewHolder(@NonNull TalkViewHolder holder, int position) {
 
         holder.topic.setText(scheduleModelArrayList.get(position).getTopic());
-        holder.host.setText(scheduleModelArrayList.get(position).getHost());
-        holder.platform.setText(scheduleModelArrayList.get(position).getPlatform());
+        holder.host.setText("By- " + scheduleModelArrayList.get(position).getHost());
+        holder.platform.setText("On- " + scheduleModelArrayList.get(position).getPlatform());
         holder.date.setText(scheduleModelArrayList.get(position).getDate());
-        holder.time.setText(scheduleModelArrayList.get(position).getTime());
-        holder.link.setText(scheduleModelArrayList.get(position).getLink());
+        holder.time.setText("at " + scheduleModelArrayList.get(position).getTime());
+        holder.link.setText("Joining link- " + scheduleModelArrayList.get(position).getLink());
 
         holder.calendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +82,7 @@ public class TalkScheduleAdapter extends RecyclerView.Adapter<TalkScheduleAdapte
     class TalkViewHolder extends RecyclerView.ViewHolder{
 
         TextView topic, host, platform, date, time, link;
-        ImageButton calendar;
+        ImageView calendar;
 
         public TalkViewHolder(@NonNull View itemView) {
             super(itemView);
