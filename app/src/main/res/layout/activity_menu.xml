@@ -19,8 +19,7 @@
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
-        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-        app:cardBackgroundColor="#FBF8F1">
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/list_one" />
+                app:lottie_rawRes="@raw/list_two" />
 
             <TextView
                 android:id="@+id/txtAlumniList"
@@ -63,8 +62,7 @@
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
-        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-        app:cardBackgroundColor="#FBF8F1">
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,8 +104,7 @@
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
-        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-        app:cardBackgroundColor="#FBF8F1">
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -123,7 +120,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/meeting_four" />
+                app:lottie_rawRes="@raw/meeting_two" />
 
             <TextView
                 android:id="@+id/txtTalkList"
