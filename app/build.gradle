@@ -47,4 +47,5 @@ dependencies {
 
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.airbnb.android:lottie:3.5.0'
 }

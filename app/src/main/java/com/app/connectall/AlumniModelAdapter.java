@@ -1,6 +1,8 @@
 package com.app.connectall;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +45,8 @@ public class AlumniModelAdapter extends RecyclerView.Adapter<AlumniModelAdapter.
         holder.tvItemBatch.setText("Batch of " + almList.get(position).getGradYear());
         holder.tvItemName.setText(almList.get(position).getName());
         holder.tvItemBranch.setText("Branch: " + almList.get(position).getBranch());
-        holder.tvItemMail.setText("Mail: " + almList.get(position).getMail());
-        holder.tvItemLinkedin.setText("Linkedin:" + almList.get(position).getLinkedIn());
+        holder.tvItemMail.setText(": " + almList.get(position).getMail());
+        holder.tvItemLinkedin.setText(": " + almList.get(position).getLinkedIn());
 
         boolean isExpanded = almList.get(position).isExpanded();
         holder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
@@ -52,14 +54,20 @@ public class AlumniModelAdapter extends RecyclerView.Adapter<AlumniModelAdapter.
         holder.tvItemLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "linkedin", Toast.LENGTH_SHORT).show();
+                Uri uri = Uri.parse(almList.get(position).getLinkedIn());
+                Intent i = new Intent(Intent.ACTION_VIEW, uri);
+                context.startActivity(i);
             }
         });
 
         holder.tvItemMail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "mail", Toast.LENGTH_SHORT).show();
+
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{almList.get(position).getMail()});
+                email.setType("message/rfc822");
+                context.startActivity(Intent.createChooser(email, "Choose an Email client :"));
             }
         });
     }

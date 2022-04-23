@@ -5,7 +5,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+    android:background="#F2EDFF"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="10dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_height="wrap_content"
@@ -14,7 +18,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="5dp"
         app:cardElevation="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +35,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/profile"
-                app:civ_border_color="@color/white"
+                app:civ_border_color="@color/colorPrimaryDark"
                 app:civ_border_width="2dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
@@ -79,7 +83,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="10dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="2dp"
     android:layout_marginEnd="10dp"
     android:layout_marginBottom="16dp"
     android:background="#fff"
@@ -120,11 +124,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="LinkedIn: "
+            android:text=" "
             android:textSize="16sp"
             android:padding="3dp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
+            android:drawableStart="@drawable/linkedin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvBranch" />
 
@@ -134,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="Mail ID: "
+            android:text=" "
             android:drawableStart="@drawable/email"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
@@ -145,5 +150,16 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:id="@+id/viewNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="#71D875"
+        app:layout_constraintTop_toBottomOf="@id/expandableLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="3dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>

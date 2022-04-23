@@ -1,40 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/white">
 
-    <LinearLayout
-        android:id="@+id/lay"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/resName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/imgdownload"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="vertical"
-        android:padding="5dp">
-
-        <TextView
-            android:id="@+id/resName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name: "/>
+        android:padding="5sp"
+        android:text="Name: "
+        android:layout_marginEnd="200dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/resDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Desc: "/>
+            android:text="Desc: "
+            android:textSize="12sp"
+            android:padding="5sp"
+            android:layout_marginEnd="200dp"
+            android:textStyle="italic"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/resName"
+            android:maxLines="3"/>
 
-    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/imgdownload"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:padding="5sp"
         android:src="@drawable/link"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <View
+        android:id="@+id/viewNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="#71D875"
+        app:layout_constraintTop_toBottomOf="@id/resDesc"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="3dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

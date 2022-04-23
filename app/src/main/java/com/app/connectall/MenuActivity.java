@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.card.MaterialCardView;
+
 public class MenuActivity extends AppCompatActivity {
 
     TextView txtAlmList, txtResList, txtTalkList;
+    MaterialCardView mt1, mt2, mt3;
     String sector;
 
     @Override
@@ -22,8 +25,12 @@ public class MenuActivity extends AppCompatActivity {
         txtAlmList = findViewById(R.id.txtAlumniList);
         txtResList = findViewById(R.id.txtResList);
         txtTalkList = findViewById(R.id.txtTalkList);
+        mt1 = findViewById(R.id.mt1);
+        mt2 = findViewById(R.id.mt2);
+        mt3 = findViewById(R.id.mt3);
 
-        txtAlmList.setOnClickListener(new View.OnClickListener() {
+
+        mt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, Alumni_List_Filtered.class);
@@ -32,7 +39,8 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        txtResList.setOnClickListener(new View.OnClickListener() {
+
+        mt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, ViewUploadedResources.class);
@@ -41,7 +49,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        txtTalkList.setOnClickListener(new View.OnClickListener() {
+        mt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, ViewTalkScheduleActivity.class);
