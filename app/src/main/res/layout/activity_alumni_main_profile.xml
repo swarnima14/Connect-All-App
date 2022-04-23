@@ -106,7 +106,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/upload"
-        android:tooltipText="Upload Resources"/>
+        android:tooltipText="Upload Resources"
+        android:backgroundTint="#71D875"/>
 
     <TextView
         android:id="@+id/tvTalkText"
@@ -130,6 +131,7 @@
         app:layout_constraintBottom_toTopOf="@id/fbUpload"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/talk"
-        android:tooltipText="Schedule Talk"/>
+        android:tooltipText="Schedule Talk"
+        android:backgroundTint="#71D875"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
