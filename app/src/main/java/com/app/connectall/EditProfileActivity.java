@@ -51,7 +51,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     CircleImageView almImg;
-    Button btnNext, btnSubmit;
+    MaterialButton btnSubmit;
     TextView tvBack, tvHeading;
     ConstraintLayout layIni, layCont;
     RadioGroup radioGroup;
@@ -95,127 +95,97 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                name = almName.getText().toString().trim();
-                grad = almGrad.getText().toString().trim();
-                branch = almBranch.getText().toString().trim();
-                linkedIn = almLinkedin.getText().toString().trim();
-
-                int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
-                if (selectedRadioButtonId != -1) {
-                    selectedRadioButton = findViewById(selectedRadioButtonId);
-                    String selectedRbText = selectedRadioButton.getText().toString();
-                    domain = selectedRbText;
-                } else {
-                   // Toast.makeText(EditProfileActivity.this, "Nothing selected from the radio group", Toast.LENGTH_SHORT).show();
-                }
-
-                String time = "" + System.currentTimeMillis();
-                StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-                String pushId = time;
-
-                StorageReference path = storageReference.child(pushId + "." + "jpeg");
-                path.putFile(resultUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                btnSubmit.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                //String pushId = databaseReference.push().getKey();
-                                imgAlmUri = uri.toString();
+                    public void onClick(View view) {
 
-                                hashMapFirst = new HashMap<>();
-                                hashMapFirst.put("Name", name);
-                                hashMapFirst.put("Graduation year", grad);
-                                hashMapFirst.put("Branch", branch);
-                                hashMapFirst.put("LinkedIn", linkedIn);
-                                hashMapFirst.put("Alumni Image URL", imgAlmUri);
+                        name = almName.getText().toString().trim();
+                        grad = almGrad.getText().toString().trim();
+                        branch = almBranch.getText().toString().trim();
+                        linkedIn = almLinkedin.getText().toString().trim();
+                        mail = almMail.getText().toString().trim();
+                        exp = almExp.getText().toString().trim();
+                        workExp = almWorkExp.getText().toString().trim();
+                        company = almCompany.getText().toString().trim();
+
+                        int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+                        if (selectedRadioButtonId != -1) {
+                            selectedRadioButton = findViewById(selectedRadioButtonId);
+                            String selectedRbText = selectedRadioButton.getText().toString();
+                            domain = selectedRbText;
+                        } else {
+                            // Toast.makeText(EditProfileActivity.this, "Nothing selected from the radio group", Toast.LENGTH_SHORT).show();
+                        }
+
+                        if (name.isEmpty() || grad.isEmpty() || branch.isEmpty() || linkedIn.isEmpty() || selectedRadioButtonId == -1
+                                || mail.isEmpty() || exp.isEmpty() || workExp.isEmpty() || company.isEmpty())
+                            Toast.makeText(EditProfileActivity.this, "All fields required", Toast.LENGTH_SHORT).show();
 
 
-                            }
-                        });
-                    }
+                        else {
+                            String time = "" + System.currentTimeMillis();
+                            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+                            String pushId = time;
 
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(EditProfileActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                            StorageReference path = storageReference.child(pushId + "." + "jpeg");
+                            path.putFile(resultUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    path.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            //String pushId = databaseReference.push().getKey();
+                                            imgAlmUri = uri.toString();
+
+                                            hashMapFirst = new HashMap<>();
+                                            hashMapFirst.put("Name", name);
+                                            hashMapFirst.put("Graduation year", grad);
+                                            hashMapFirst.put("Branch", branch);
+                                            hashMapFirst.put("LinkedIn", linkedIn);
+                                            hashMapFirst.put("Alumni Image URL", imgAlmUri);
+                                            hashMapSec = new HashMap<>();
+                                            hashMapSec.putAll(hashMapFirst);
+                                            hashMapSec.put("Mail", mail);
+                                            hashMapSec.put("Experience", exp);
+                                            hashMapSec.put("Work Experience", workExp);
+                                            hashMapSec.put("Company", company);
+
+
+                                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Alumni");
+                                            String uid = FirebaseAuth.getInstance().getUid();
+                                            databaseReference.child(domain).child(uid).setValue(hashMapSec).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+
+                                                    SharedPreferences preferences = getSharedPreferences("Alumni status", MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor = preferences.edit();
+                                                    editor.putString("Alumni status", "profile complete");
+                                                    editor.apply();
+                                                    Toast.makeText(EditProfileActivity.this, "Profile created successfully", Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(EditProfileActivity.this, AlumniMainProfile.class));
+                                                    finish();
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(EditProfileActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
+                        }
 
                     }
                 });
-
-
-
-
-
-                if(name.isEmpty() || grad.isEmpty() || branch.isEmpty() || linkedIn.isEmpty() || selectedRadioButtonId == -1)
-                    Toast.makeText(EditProfileActivity.this, "All fields required", Toast.LENGTH_SHORT).show();
-                else {
-                    layIni.setVisibility(View.GONE);
-                    btnNext.setVisibility(View.GONE);
-                    tvHeading.setVisibility(View.GONE);
-
-                    layCont.setVisibility(View.VISIBLE);
-                    btnSubmit.setVisibility(View.VISIBLE);
-                    tvBack.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        tvBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layIni.setVisibility(View.VISIBLE);
-                btnNext.setVisibility(View.VISIBLE);
-                tvHeading.setVisibility(View.VISIBLE);
-
-                layCont.setVisibility(View.GONE);
-                btnSubmit.setVisibility(View.GONE);
-                tvBack.setVisibility(View.GONE);
-            }
-        });
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mail = almMail.getText().toString().trim();
-                exp = almExp.getText().toString().trim();
-                workExp = almWorkExp.getText().toString().trim();
-                company = almCompany.getText().toString().trim();
-
-                if(mail.isEmpty() || exp.isEmpty() || workExp.isEmpty() || company.isEmpty())
-                    Toast.makeText(EditProfileActivity.this, "All fields required", Toast.LENGTH_SHORT).show();
-
-                else {
-                    hashMapSec = new HashMap<>();
-                    hashMapSec.putAll(hashMapFirst);
-                    hashMapSec.put("Mail", mail);
-                    hashMapSec.put("Experience", exp);
-                    hashMapSec.put("Work Experience", workExp);
-                    hashMapSec.put("Company", company);
-
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Alumni");
-                    String uid = FirebaseAuth.getInstance().getUid();
-                    databaseReference.child(domain).child(uid).setValue(hashMapSec).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-
-                            SharedPreferences preferences = getSharedPreferences("Alumni status",MODE_PRIVATE);
-                            SharedPreferences.Editor editor = preferences.edit();
-                            editor.putString("Alumni status", "profile complete");
-                            editor.apply();
-                            Toast.makeText(EditProfileActivity.this, "Profile created successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(EditProfileActivity.this, AlumniMainProfile.class));
-                            finish();
-                        }
-                    });
-                }
-            }
-        });
     }
 
     private void initialise() {
-        btnNext = findViewById(R.id.bt_register);
+
         btnSubmit = findViewById(R.id.bt_submit);
         tvBack = findViewById(R.id.tvBack);
         tvHeading = findViewById(R.id.tv_heading);

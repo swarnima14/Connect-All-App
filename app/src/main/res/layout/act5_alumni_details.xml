@@ -16,45 +16,39 @@
         android:textColor="#000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="631dp"
-        android:layout_height="827dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35">
+       app:layout_constraintTop_toBottomOf="@id/tv_heading">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="2dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layInitial"
-                android:layout_width="match_parent"
-                android:layout_height="501dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/almImg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/profile"
+                app:civ_border_color="@color/colorPrimaryDark"
+                app:civ_border_width="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_heading"
+                android:layout_gravity="center_horizontal"/>
 
-                <TextView
-                    android:id="@+id/tvname"
-                    android:layout_width="56dp"
-                    android:layout_height="26dp"
-                    android:layout_marginStart="20dp"
-                    android:text="Name:"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/almImg" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/name_details"
@@ -62,25 +56,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvname">
+                    android:layout_marginEnd="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/almName"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:hint="Name"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/graduation"
-                    android:layout_width="129dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="20dp"
-                    android:text="Year of graduation:"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/name_details" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enter_email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/almMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Email" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/branch_enter"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/almBranch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Branch"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/graduation_enter"
@@ -88,42 +103,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/graduation">
+                    android:layout_marginEnd="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/almGrad"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:hint="Graduation year"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/branch_enter"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/branch">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/almBranch"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/branch"
-                    android:layout_width="77dp"
-                    android:layout_height="26dp"
-                    android:layout_marginStart="20dp"
-                    android:text="Branch:"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/graduation_enter" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -169,100 +159,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView5">
+                    android:layout_marginEnd="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/almLinkedin"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="LinkedIn Profile Link"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/radioGrp" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/tvBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Previous"
-                android:textSize="16sp"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layContinue"
-                android:layout_width="match_parent"
-                android:layout_height="405dp"
-                android:layout_marginTop="10dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:visibility="visible"
-                tools:layout_editor_absoluteY="502dp">
-
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email:"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/work_experience"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Work Experience:"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/enter_email" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/enter_work_experience"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/work_experience">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/almWorkExp"
-                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="enter work experience" />
+                        android:hint="LinkedIn Profile"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/company"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Company:"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.002"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/enter_work_experience" />
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/enter_company_details"
@@ -270,131 +176,65 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/company">
+                    android:layout_marginEnd="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/almCompany"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Enter your company name and location" />
+                        android:hint="Company Name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editTextTextMultiLine6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/other_info" />
 
-                <TextView
-                    android:id="@+id/experience_years"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Years of experience:"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/enter_company_details" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enter_work_experience"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/almExpLay"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/almWorkExp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/experience_years">
+                    android:layout_height="match_parent"
+                    android:hint="Enter work experience" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/almExp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="enter years of experience" />
-                </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/almExpLay"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/enter_email"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/almExp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/email">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/almMail"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="enter email" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/other_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Any other:"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/almExpLay" />
+                    android:layout_height="match_parent"
+                    android:hint="Years of experience" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
-
-
-    </ScrollView>
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_submit"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@color/design_default_color_primary"
         android:elevation="2dp"
         android:text="Submit"
+        android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView" />
+        android:visibility="visible" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/almImg"
-        android:layout_width="118dp"
-        android:layout_height="169dp"
-        android:src="@drawable/profile"
-        app:civ_border_color="@color/colorPrimaryDark"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_heading"
-        app:layout_constraintVertical_bias="0.017" />
+</LinearLayout>
+</ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
