@@ -8,18 +8,7 @@
     tools:context=".EditProfileActivity">
 
 
-    <TextView
-        android:id="@+id/tv_heading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create your Profile"
-        android:textColor="#000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!---->
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -27,13 +16,24 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/tv_heading">
+       app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create your Profile"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"/>
 
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -43,6 +43,7 @@
                 android:src="@drawable/profile"
                 app:civ_border_color="@color/colorPrimaryDark"
                 app:civ_border_width="2dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +57,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp">
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/almName"
@@ -72,7 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/almMail"
@@ -87,7 +90,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/almBranch"
@@ -103,7 +107,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp">
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/almGrad"
@@ -117,39 +122,38 @@
 
                 <TextView
                     android:id="@+id/textView4"
-                    android:layout_width="227dp"
-                    android:layout_height="21dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:text="Choose your domain "
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/branch_enter"
-                    tools:layout_editor_absoluteY="403dp" />
+                    android:layout_marginTop="5dp"/>
 
                 <RadioGroup
                     android:id="@+id/radioGrp"
-                    android:layout_width="232dp"
-                    android:layout_height="114dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textView4"
-                    tools:layout_editor_absoluteX="38dp"
-                    tools:layout_editor_absoluteY="442dp">
+                    android:layout_marginTop="5dp">
 
                     <RadioButton
                         android:id="@+id/rbTech"
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Corporate or Technical Sector" />
 
                     <RadioButton
                         android:id="@+id/rbHigher"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Higher Studies" />
 
                     <RadioButton
                         android:id="@+id/rbGov"
-                        android:layout_width="wrap_content"
-                        android:layout_height="28dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Government Sector" />
                 </RadioGroup>
 
@@ -159,7 +163,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp">
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/almLinkedin"
@@ -176,7 +181,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp">
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/almCompany"
@@ -192,7 +198,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/almWorkExp"
@@ -207,7 +214,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/almExp"
@@ -220,17 +228,19 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_submit"
-        style="?android:attr/borderlessButtonStyle"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
         android:elevation="2dp"
         android:text="Submit"
         android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        />
 
 
 </LinearLayout>
