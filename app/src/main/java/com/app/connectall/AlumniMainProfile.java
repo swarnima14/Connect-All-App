@@ -6,12 +6,16 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +36,8 @@ public class AlumniMainProfile extends AppCompatActivity {
     String uid;
     String name, domain;
     FloatingActionButton fbUpload, fbTalk;
+    BottomNavigationView bottomNavAlm;
+    ImageButton logoutAlm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,16 +64,30 @@ public class AlumniMainProfile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        logoutAlm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(AlumniMainProfile.this, LoginActivity.class));
+                finish();
+            }
+        });
     }
 
     private void initialise() {
         tvAlmName = findViewById(R.id.tvAlmName);
         tvAlmBatch = findViewById(R.id.tvAlmBatch);
-        btnAlmEdit = findViewById(R.id.btnAlmEdit);
+        logoutAlm = findViewById(R.id.btnLogoutAlm);
         fbTalk = findViewById(R.id.fbTalk);
         fbUpload = findViewById(R.id.fbUpload);
         cvAlmImg = findViewById(R.id.cvAlmImg);
         uid = FirebaseAuth.getInstance().getUid();
+
+        bottomNavAlm = findViewById(R.id.bottom_navigation_alm);
+        bottomNavAlm.setOnNavigationItemSelectedListener(navListener);
+
+        bottomNavAlm.setSelected(false);
     }
 
     @Override
@@ -160,4 +180,53 @@ public class AlumniMainProfile extends AppCompatActivity {
             }
         });
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()) {
+
+                case R.id.cllgSite: {
+                    String url = "https://iiitu.ac.in/";
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                    break;
+                }
+
+                case R.id.placements: {
+                    String url = "https://iiitu.ac.in/placement/";
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                    break;
+                }
+
+                case R.id.gallery: {
+                    String url = "https://iiitu.ac.in/gallery/";
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                    break;
+                }
+
+                case R.id.academics: {
+                    String url = "https://iiitu.ac.in/academics/";
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                    break;
+                }
+
+                default:
+                {
+                    bottomNavAlm.setSelected(false);
+                    break;
+                }
+
+            }
+            return true;
+        }
+    };
 }

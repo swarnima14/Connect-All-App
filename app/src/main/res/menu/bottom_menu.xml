@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cllgSite"
+        android:title="College Website"
+        android:icon="@drawable/cllg_site"/>
+    <item
+        android:id="@+id/placements"
+        android:title="Placements"
+        android:icon="@drawable/placement"/>
+    <item
+        android:id="@+id/gallery"
+        android:title="Gallery"
+        android:icon="@drawable/gallery"/>
+
+    <item
+        android:id="@+id/academics"
+        android:title="Academics"
+        android:icon="@drawable/academics"/>
+</menu>

@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         toolbar.setTitle("CONNECT-ALL");
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         tabLayout.setGravity(TabLayout.GRAVITY_FILL);
 
         alumni = findViewById(R.id.btnSelAlumni);

@@ -66,19 +66,35 @@
                 android:layout_height="wrap_content"
                 android:text="Branch: "
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="5dp">
+
+            <ImageButton
                 android:id="@+id/btnStuEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/edit"
-                android:text="Edit Profile" />
+                android:src="@drawable/edit"
+                android:backgroundTint="@color/colorPrimary"/>
+
+            <ImageButton
+                android:id="@+id/btnLogoutStu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sign_out"
+                android:backgroundTint="@color/colorPrimary"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -139,69 +155,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnTechSelection" />
 
-   <!-- <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Find Alumni of IIITU in your domain."
-        android:textColor="#5012BD "
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/bottom_menu"
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnViewList" />
-
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView9">
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="303dp"
-            android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:text="Corporate or Technical Sector"
-            android:textColor="#5012BD "
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:text="Higher Studies"
-            android:textColor="#5012BD "
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:text="Government Sector"
-            android:textColor="#5012BD "
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </RadioGroup>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSearchAlm"
-        android:layout_width="166dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:text="Search Alumni"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup" />-->
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

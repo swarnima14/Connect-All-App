@@ -2,16 +2,21 @@ package com.app.connectall;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.net.URI;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class StudentProfileActivity extends AppCompatActivity {
@@ -28,9 +35,11 @@ public class StudentProfileActivity extends AppCompatActivity {
     MaterialButton btnViewList, btnSearchAlm, btnResources, btnGovSel, btnTechSel, btnHigherSel;
     RadioGroup radioGroup;
     String uid;
+    BottomNavigationView bottomNav;
 
     TextView tvStuName, tvStuBranch;
     CircleImageView cvStuImg;
+    ImageButton logoutStu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,43 +50,7 @@ public class StudentProfileActivity extends AppCompatActivity {
         String type = preferences.getString("type", null);
         Toast.makeText(this, "type: "+type, Toast.LENGTH_SHORT).show();*/
 
-
-
         initialise();
-
-        /*btnViewList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(StudentProfileActivity.this, Alumni_List.class));
-            }
-        });
-
-        btnSearchAlm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(StudentProfileActivity.this, "clicked", Toast.LENGTH_SHORT).show();
-                int selBtnId = radioGroup.getCheckedRadioButtonId();
-                if(selBtnId != -1) {
-                    RadioButton selRB = findViewById(selBtnId);
-                    domain = selRB.getText().toString().trim();
-                    Intent intent = new Intent(StudentProfileActivity.this, Alumni_List_Filtered.class);
-                    intent.putExtra("domain", domain);
-                    startActivity(intent);
-                }
-                else
-                {
-                    Toast.makeText(StudentProfileActivity.this, "No domain selected.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });*/
-
-        /*btnResources.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(StudentProfileActivity.this, ViewUploadedResources.class));
-            }
-        });*/
 
         btnGovSel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,22 +79,33 @@ public class StudentProfileActivity extends AppCompatActivity {
             }
         });
 
+        logoutStu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(StudentProfileActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
+
     }
 
     private void initialise() {
 
-        /*btnViewList = findViewById(R.id.btnViewList);
-        btnSearchAlm = findViewById(R.id.btnSearchAlm);
-        btnResources = findViewById(R.id.btnViewResources);*/
         btnGovSel = findViewById(R.id.btnGovSelection);
         btnTechSel = findViewById(R.id.btnTechSelection);
         btnHigherSel = findViewById(R.id.btnHigherSelection);
-        //radioGroup = findViewById(R.id.radioGroup);
 
         tvStuName = findViewById(R.id.tvStuName);
         tvStuBranch = findViewById(R.id.tvStuBranch);
         cvStuImg = findViewById(R.id.cvStuImg);
 
+        bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        bottomNav.setSelected(false);
+
+        logoutStu = findViewById(R.id.btnLogoutStu);
     }
 
     @Override
@@ -153,4 +137,54 @@ public class StudentProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()) {
+
+                case R.id.cllgSite: {
+                    String url = "https://iiitu.ac.in/";
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                    break;
+                }
+
+                case R.id.placements: {
+                    String url = "https://iiitu.ac.in/placement/";
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                    break;
+                }
+
+                case R.id.gallery: {
+                    String url = "https://iiitu.ac.in/gallery/";
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                    break;
+                }
+
+                case R.id.academics: {
+                    String url = "https://iiitu.ac.in/academics/";
+                    Uri uri = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                    break;
+                }
+
+                default:
+                {
+                    bottomNav.setSelected(false);
+                    break;
+                }
+
+            }
+            return true;
+        }
+    };
+
 }

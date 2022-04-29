@@ -187,10 +187,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private void initialise() {
 
         btnSubmit = findViewById(R.id.bt_submit);
-        tvBack = findViewById(R.id.tvBack);
         tvHeading = findViewById(R.id.tv_heading);
-        layIni = findViewById(R.id.layInitial);
-        layCont = findViewById(R.id.layContinue);
+
         almImg = findViewById(R.id.almImg);
 
         almName = findViewById(R.id.almName);
