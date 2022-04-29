@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,21 +51,21 @@
                 android:layout_gravity="center_horizontal"/>
 
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/name_details"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="10dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_details"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/almName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="Name"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/almName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Name"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -101,95 +101,95 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/graduation_enter"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/graduation_enter"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/almGrad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Graduation year"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Choose your domain "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/branch_enter"
+                android:layout_marginTop="5dp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGrp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView4"
+                android:layout_marginTop="5dp">
+
+                <RadioButton
+                    android:id="@+id/rbTech"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="5dp">
+                    android:text="Corporate or Technical Sector" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/almGrad"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="Graduation year"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-                <TextView
-                    android:id="@+id/textView4"
+                <RadioButton
+                    android:id="@+id/rbHigher"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="Choose your domain "
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/branch_enter"
-                    android:layout_marginTop="5dp"/>
+                    android:text="Higher Studies" />
 
-                <RadioGroup
-                    android:id="@+id/radioGrp"
+                <RadioButton
+                    android:id="@+id/rbGov"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView4"
-                    android:layout_marginTop="5dp">
+                    android:text="Government Sector" />
+            </RadioGroup>
 
-                    <RadioButton
-                        android:id="@+id/rbTech"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Corporate or Technical Sector" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp">
 
-                    <RadioButton
-                        android:id="@+id/rbHigher"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Higher Studies" />
-
-                    <RadioButton
-                        android:id="@+id/rbGov"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Government Sector" />
-                </RadioGroup>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/almLinkedin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="5dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/almLinkedin"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="LinkedIn Profile"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:hint="LinkedIn Profile"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/enter_company_details"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/enter_company_details"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/almCompany"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="5dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/almCompany"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="Company Name" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:hint="Company Name" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -226,25 +226,25 @@
 
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/bt_submit"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
-        android:elevation="2dp"
-        android:text="Submit"
-        android:layout_gravity="center_horizontal"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp"
-        android:visibility="visible"
-        />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_submit"
+                android:backgroundTint="#71D875"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:elevation="2dp"
+                android:text="Submit"
+                android:layout_gravity="center_horizontal"
+                android:textAllCaps="false"
+                android:textColor="#5012BD"
+                android:textSize="15sp"
+                android:visibility="visible"
+                />
 
 
-</LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
